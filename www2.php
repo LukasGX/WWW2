@@ -1,4 +1,5 @@
 <?php
+// 1.0
 class WWW2 {
     function __construct($title) {
         $title = "<title>$title</title>";
