@@ -1,5 +1,4 @@
-# WWW2 
-Currently, I am preparing my private work for publishing to this repository.
+# WWW2
 ## Installation
 + Download www2.php
 + include into your php-file (e.g. index.php)
