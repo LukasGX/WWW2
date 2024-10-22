@@ -144,33 +144,30 @@ if ($site->check_loginform_input()) { // login form submitted?
 ### Register site
 For creating non-designed Standard-Registersites there's a own method named register_page()
 ```php
-$site->$site->login_page($additional_form_fields, $answering_site, $username_placeholder, $password_placeholder, $submit_value, $method);
+$additional_form_fields = array(
+    array(
+        "type" => "radio",
+        "name" => "gender",
+        "value" => "m",
+        "rdv" => "Man"
+    ),
+    array(
+        "type" => "radio",
+        "name" => "gender",
+        "value" => "w",
+        "rdv" => "Woman"
+    ),
+    array(
+        "type" => "radio",
+        "name" => "gender",
+        "value" => "d",
+        "rdv" => "Diverse"
+    )
+);
+$site->login_page($additional_form_fields, $answering_site, $username_placeholder, $password_placeholder, $submit_value, $method);
 ```
 All parameters explained:
 + **additional form fields**: Form fields between Username, Password and submit
-  + usage:
-    ```php
-    $additional_form_fields = array(
-        array(
-            "type" => "radio",
-            "name" => "gender",
-            "value" => "m",
-            "rdv" => "Man"
-        ),
-        array(
-            "type" => "radio",
-            "name" => "gender",
-            "value" => "w",
-            "rdv" => "Woman"
-        ),
-        array(
-            "type" => "radio",
-            "name" => "gender",
-            "value" => "d",
-            "rdv" => "Diverse"
-        )
-    );
-    ```
 + **answering site**: The site where is the data going (required)
 + **username placeholder**: The placeholder for the username field (optional; standard is Username)
 + **password placeholder**: The placeholder for the password field (optional; standard is Password)
@@ -179,16 +176,10 @@ All parameters explained:
 
 **Processing the input**:
 ```php
-if ($site->check_loginform_input()) { // login form submitted?
-    $process = $site->process_login();
-    if ($process === 0) {
+if ($site->check_registerform_input()) { // register form submitted?
+    $process = $site->process_register();
+    if ($process) {
         $site->add("OK!");
-    }
-    else if ($process === 1) {
-        $site->add("Wrong Password!");
-    }
-    else {
-        $site->add("This user does not exist!");
     }
 }
 ```
