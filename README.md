@@ -29,6 +29,10 @@ $site->style("
 }
 ");
 ```
++ adding external css file
+```php
+$site->css("styles.css");
+```
 + adding \<script\>-Tags
   + You must not use the \<script>-Tags!
   + It is recommended to use *.js files!
@@ -38,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Hello World!');
 });
 ");
+```
++ adding external js file
+```php
+$site->js("script.js");
 ```
 + keywords
 ```php

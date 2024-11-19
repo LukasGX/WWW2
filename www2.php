@@ -1,5 +1,5 @@
 <?php
-// 1.0
+// 1.1
 class WWW2 {
     function __construct($title) {
         $title = "<title>$title</title>";
@@ -25,6 +25,16 @@ class WWW2 {
         $meta = str_ireplace("\"", "", $meta);
         $value = str_ireplace("\"", "", $value);
         $tag = "<meta name='$meta' content='$value'>";
+        $this->bhead .= $tag;
+    }
+    function css($link) {
+        $link = str_ireplace("\"", "", $link);
+        $tag = "<link rel='stylesheet' href='$link'>";
+        $this->bhead .= $tag;
+    }
+    function js($link) {
+        $link = str_ireplace("\"", "", $link);
+        $tag = "<script src='$link'></script>";
         $this->bhead .= $tag;
     }
     function style($content) {
