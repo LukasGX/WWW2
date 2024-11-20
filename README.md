@@ -171,7 +171,7 @@ $additional_form_fields = array(
         "rdv" => "Diverse"
     )
 );
-$site->login_page($additional_form_fields, $answering_site, $username_placeholder, $password_placeholder, $submit_value, $method);
+$site->register_page($additional_form_fields, $answering_site, $username_placeholder, $password_placeholder, $submit_value, $method);
 ```
 All parameters explained:
 + **additional form fields**: Form fields between Username, Password and submit
